@@ -1,0 +1,9 @@
+﻿<Window x:Class="TestOrientationSensor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Content="Manually Fire Event" HorizontalAlignment="Left" Margin="122,76,0,0" VerticalAlignment="Top" Width="132" Height="59" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

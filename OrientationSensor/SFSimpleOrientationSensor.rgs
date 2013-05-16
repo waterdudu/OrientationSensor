@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {0DC115D2-15D5-4828-BD5A-BE8C707C4C98} = s 'SFSimpleOrientationSensor Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{6C8DE8A3-C562-4532-BCB7-DBCE3146E815}'
+			Version = s '1.0'
+		}
+	}
+}

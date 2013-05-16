@@ -1,0 +1,80 @@
+// OrientationSensor.idl : IDL source for OrientationSensor
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (OrientationSensor.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef enum OrientationState
+{
+	Orientation_Landscape,
+	Orientation_Portrait,
+	ORIENTATION_Landscape_Flip,
+	ORIENTATION_Portrait_Flip
+} OrientationState;
+
+[
+	object,
+	uuid(51F4AFE4-5AD6-4F9F-AF67-F83DD9AF4031),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISimpleOrientationSensor : IDispatch{
+};
+[
+	object,
+	uuid(D50755CD-1D3C-4BA4-84F6-192A658AAFAE),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISFSimpleOrientationSensor : IDispatch{
+//	[id(1)] HRESULT OrientationChanged([out] OrientationState* orientationState);
+//	[id(1)] HRESULT TestEnableOrientationSensor([in] BOOL bEnable, [out] OrientationState* orientationState);
+	[id(1)] HRESULT TestEnableOrientationSensor([in] BOOL bEnable);
+};
+[
+	uuid(6C8DE8A3-C562-4532-BCB7-DBCE3146E815),
+	version(1.0),
+]
+library OrientationSensorLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(37B46243-32A4-410D-825A-B5A9E1FCC4F0)		
+	]
+	dispinterface _ISimpleOrientationSensorEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(3DD4F7FC-7DD2-4F18-A007-E23EEAFCE58D)		
+	]
+	coclass SimpleOrientationSensor
+	{
+		[default] interface ISimpleOrientationSensor;
+		[default, source] dispinterface _ISimpleOrientationSensorEvents;
+	};
+	[
+		uuid(BAA822D3-1015-42A7-A063-00299459E2F7)		
+	]
+	dispinterface _ISFSimpleOrientationSensorEvents
+	{
+		properties:
+		methods:
+			[id(1)] HRESULT OrientationChanged(OrientationState orientationState);
+	};
+	[
+		uuid(0DC115D2-15D5-4828-BD5A-BE8C707C4C98)		
+	]
+	coclass SFSimpleOrientationSensor
+	{
+		[default] interface ISFSimpleOrientationSensor;
+		[default, source] dispinterface _ISFSimpleOrientationSensorEvents;
+	};
+};
+
